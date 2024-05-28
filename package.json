@@ -1,0 +1,43 @@
+{
+    "name": "igris-aws-apigateway",
+    "version": "0.1.0",
+    "description": "Aws ApiGateway infrastructure of Igris framework",
+    "author": "Mariano Fernández",
+    "license": "MIT",
+    "scripts": {
+        "lint": "eslint --fix",
+        "format": "prettier --write .",
+        "prepare": "husky install",
+        "test": "jest",
+        "type-check": "tsc",
+        "build:esbuild": "node esbuild.js",
+        "build": "npm run build:esbuild && npm run type-check",
+        "publish-prepare": "npm run build"
+    },
+    "main": "dist/index.js",
+    "types": "dist/src/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "keywords": [],
+    "devDependencies": {
+        "@types/node": "^20.12.2",
+        "@typescript-eslint/eslint-plugin": "^5.62.0",
+        "@typescript-eslint/parser": "^5.62.0",
+        "@types/aws-lambda": "^8.10.138",
+        "esbuild": "^0.21.4",
+        "esbuild-plugin-copy": "^2.1.1",
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^8.10.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "husky": "^8.0.3",
+        "prettier": "^2.8.8",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.4.3"
+    },
+    "dependencies": {
+        "aws-lambda": "^1.0.7",
+        "igris-core": "^0.2.3"
+    }
+}
