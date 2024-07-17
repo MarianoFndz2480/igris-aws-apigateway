@@ -10,6 +10,7 @@
         "prepare": "husky install",
         "test": "jest",
         "type-check": "tsc",
+        "pre-commit": "npm run lint && npm run format && npm run type-check",
         "build:esbuild": "node esbuild.js",
         "build": "npm run build:esbuild && npm run type-check",
         "publish-prepare": "npm run build",
