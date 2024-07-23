@@ -9,8 +9,8 @@
         "format": "prettier --write .",
         "prepare": "husky install",
         "test": "jest",
-        "type-check": "tsc",
-        "pre-commit": "npm run lint && npm run format && npm run type-check",
+        "type-check": "tsc --project tsconfig.json",
+        "pre-commit": "npx lint-staged",
         "build:esbuild": "node esbuild.js",
         "build": "npm run build:esbuild && npm run type-check",
         "publish-prepare": "npm run build",
@@ -39,10 +39,22 @@
         "husky": "^8.0.3",
         "prettier": "^2.8.8",
         "ts-node": "^10.9.2",
-        "typescript": "^5.4.3"
+        "typescript": "^5.4.3",
+        "lint-staged": "^15.2.7"
     },
     "dependencies": {
         "aws-lambda": "^1.0.7",
         "igris-core": "^0.7.0"
+    },
+    "lint-staged": {
+        "**/*.{js,jsx,ts,tsx}": [
+            "npm run lint"
+        ],
+        "**/*.{ts}": [
+            "npm run type-check"
+        ],
+        "**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+            "npm run format"
+        ]
     }
 }
