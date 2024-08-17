@@ -44,7 +44,7 @@
     },
     "dependencies": {
         "aws-lambda": "^1.0.7",
-        "igris-core": "^0.7.0"
+        "igris-core": "^0.12.1"
     },
     "lint-staged": {
         "**/*.{js,jsx,ts,tsx}": [
