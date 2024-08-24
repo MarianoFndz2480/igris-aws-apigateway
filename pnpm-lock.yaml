@@ -11,8 +11,8 @@ importers:
                 specifier: ^1.0.7
                 version: 1.0.7
             igris-core:
-                specifier: ^0.12.1
-                version: 0.12.1
+                specifier: ^0.14.2
+                version: 0.14.2
         devDependencies:
             '@types/aws-lambda':
                 specifier: ^8.10.138
@@ -1254,10 +1254,10 @@ packages:
             }
         engines: { node: '>= 4' }
 
-    igris-core@0.12.1:
+    igris-core@0.14.2:
         resolution:
             {
-                integrity: sha512-clj/mOiJ52bwXtpReFvm0iUcPQ9BYoK4JXc+NSe+BT71MlpX5Ch3iKDMLOYU04yyCOJMV/8/3Ewr853Ds7mR1w==,
+                integrity: sha512-VNHce/RtrY3v3IVlcV+G2q4rGBRyWlP/QJjrv2dW/81mt2Zg3T2waHTwzcQ4oB/TPozxGyKf095yvZYw0Be1Ew==,
             }
 
     import-fresh@3.3.0:
@@ -2826,7 +2826,7 @@ snapshots:
 
     ignore@5.3.1: {}
 
-    igris-core@0.12.1: {}
+    igris-core@0.14.2: {}
 
     import-fresh@3.3.0:
         dependencies:

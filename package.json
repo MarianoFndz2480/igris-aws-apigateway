@@ -9,21 +9,15 @@
         "format": "prettier --write .",
         "prepare": "husky install",
         "test": "jest",
-        "type-check": "tsc --project tsconfig.json",
+        "type-check": "tsc",
         "pre-commit": "npx lint-staged",
         "build:esbuild": "node esbuild.js",
         "build": "npm run build:esbuild && npm run type-check",
-        "publish-prepare": "npm run build",
-        "release": "echo 'Starting release process' && npm version patch && npm run publish-prepare && npm publish && git add package.json && echo 'Release process completed'",
-        "release:patch": "echo 'Starting patch release process' && npm version patch && npm run publish-prepare && npm publish && git add package.json && echo 'Release process completed'",
-        "release:minor": "echo 'Starting minor release process' && npm version minor && npm run publish-prepare && npm publish && git add package.json && echo 'Release process completed'",
-        "release:major": "echo 'Starting minor release process' && npm version major && npm run publish-prepare && npm publish && git add package.json && echo 'Release process completed'"
+        "release:patch": "echo 'Starting patch release process' && npm version patch && npm publish && git add package.json && echo 'Release process completed'",
+        "release:minor": "echo 'Starting minor release process' && npm version minor && npm publish && git add package.json && echo 'Release process completed'",
+        "release:major": "echo 'Starting minor release process' && npm version major && npm publish && git add package.json && echo 'Release process completed'"
     },
-    "main": "dist/index.js",
-    "types": "dist/src/index.d.ts",
-    "files": [
-        "dist"
-    ],
+    "main": "src/index.ts",
     "keywords": [],
     "devDependencies": {
         "@types/aws-lambda": "^8.10.138",
@@ -44,16 +38,12 @@
     },
     "dependencies": {
         "aws-lambda": "^1.0.7",
-        "igris-core": "^0.12.1"
+        "igris-core": "^0.14.2"
     },
     "lint-staged": {
         "**/*.{js,jsx,ts,tsx}": [
-            "npm run lint"
-        ],
-        "**/*.{ts}": [
-            "npm run type-check"
-        ],
-        "**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+            "npm run lint",
+            "npm run type-check",
             "npm run format"
         ]
     }
