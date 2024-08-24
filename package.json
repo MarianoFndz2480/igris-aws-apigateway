@@ -1,6 +1,6 @@
 {
     "name": "igris-aws-apigateway",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "description": "Aws ApiGateway infrastructure of Igris framework",
     "author": "Mariano Fernández",
     "license": "MIT",
