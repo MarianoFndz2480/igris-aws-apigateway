@@ -41,7 +41,7 @@
         "igris-core": "^0.14.2"
     },
     "lint-staged": {
-        "**/*.{js,jsx,ts,tsx}": [
+        "**/*.ts?(x)": [
             "npm run lint",
             "npm run type-check",
             "npm run format"
