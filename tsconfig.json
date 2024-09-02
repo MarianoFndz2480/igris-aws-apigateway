@@ -19,7 +19,6 @@
             "*": ["node_modules/*"]
         },
         "declaration": true,
-        "emitDeclarationOnly": true,
         "allowJs": true
     },
     "include": ["src/**/*.ts"],
