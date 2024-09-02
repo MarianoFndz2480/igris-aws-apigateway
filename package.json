@@ -9,7 +9,7 @@
         "format": "prettier --write .",
         "prepare": "husky install",
         "test": "jest",
-        "type-check": "tsc",
+        "type-check": "tsc --noEmit",
         "pre-commit": "npx lint-staged",
         "release:patch": "echo 'Starting patch release process' && npm version patch && npm publish && git add package.json && echo 'Release process completed'",
         "release:minor": "echo 'Starting minor release process' && npm version minor && npm publish && git add package.json && echo 'Release process completed'",
@@ -39,7 +39,8 @@
     "lint-staged": {
         "**/*.ts?(x)": [
             "npm run lint",
-            "npm run format"
+            "npm run format",
+            "npm run type-check"
         ]
     }
 }
