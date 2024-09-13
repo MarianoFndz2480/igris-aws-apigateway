@@ -1,13 +1,13 @@
 {
     "compilerOptions": {
-        "target": "es2017",
+        "target": "es2022",
         "module": "commonjs",
         "lib": ["es2020"],
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
         "outDir": "dist",
-        "rootDir": ".",
+        "rootDir": "src",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "noUnusedLocals": true,
@@ -19,8 +19,9 @@
             "*": ["node_modules/*"]
         },
         "declaration": true,
-        "allowJs": true
+        "declarationMap": true,
+        "sourceMap": true
     },
     "include": ["src/**/*.ts"],
-    "exclude": ["node_modules", "dist", ".eslintrc.js"]
+    "exclude": ["node_modules", "dist", ",eslintrc.js"]
 }
