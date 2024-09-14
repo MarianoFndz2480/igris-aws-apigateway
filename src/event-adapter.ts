@@ -2,7 +2,7 @@ import { APIGatewayEvent } from 'aws-lambda'
 import { RequestAdapter, CommonRequest, ResponseError, ResponseSuccess } from 'igris-core'
 
 export class AWSApiGatewayRequestAdapter extends RequestAdapter {
-    parseInput(event: APIGatewayEvent): CommonRequest {
+    parseRequest(event: APIGatewayEvent): CommonRequest {
         const request: CommonRequest = {
             payload: {},
             token: '',
