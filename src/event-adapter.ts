@@ -1,5 +1,5 @@
 import { APIGatewayEvent } from 'aws-lambda'
-import { RequestAdapter, CommonRequest, ResponseError, ResponseSuccess } from 'igris-core'
+import { RequestAdapter, CommonRequest, ErrorData } from 'igris-core'
 
 export class AWSApiGatewayRequestAdapter extends RequestAdapter {
     parseRequest(event: APIGatewayEvent): CommonRequest {
@@ -33,14 +33,11 @@ export class AWSApiGatewayRequestAdapter extends RequestAdapter {
         return queryParams
     }
 
-    parseResponse(response: ResponseSuccess | ResponseError): { statusCode: number; body: string } {
-        const body =
-            response instanceof ResponseSuccess
-                ? JSON.stringify(response.data)
-                : JSON.stringify({ message: response.message, errorName: response.name })
+    parseResponse(data: ErrorData): string | object {
+        const body = JSON.stringify(data.response)
 
         return {
-            statusCode: response.code,
+            statusCode: data.statusCode,
             body,
         }
     }
