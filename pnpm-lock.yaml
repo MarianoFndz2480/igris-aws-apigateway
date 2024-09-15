@@ -12,8 +12,8 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7
       igris-core:
-        specifier: ^0.16.7
-        version: 0.16.7
+        specifier: ^0.17.0
+        version: 0.17.0
     devDependencies:
       '@types/aws-lambda':
         specifier: ^8.10.138
@@ -624,8 +624,8 @@ packages:
     resolution: {integrity: sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw==}
     engines: {node: '>= 4'}
 
-  igris-core@0.16.7:
-    resolution: {integrity: sha512-C4hZ8IqNd77gkukVSJD3+9Z2qhEoiQer4kCdajfr1gDEx2AEwXRSJp6B+17v+WnFSIwG40pCOEczhU9Lt8UdRw==}
+  igris-core@0.17.0:
+    resolution: {integrity: sha512-PQIlg1pg9WQPv8zIiF31MCw2vhhmY+vAMOc+xh1e837WeC7nwJsT0dxKfM4gTCsZhMEjjxc5vuP7krYz4+3lgw==}
     engines: {node: '>=16.x'}
 
   import-fresh@3.3.0:
@@ -1757,7 +1757,7 @@ snapshots:
 
   ignore@5.3.1: {}
 
-  igris-core@0.16.7:
+  igris-core@0.17.0:
     dependencies:
       rimraf: 6.0.1
 

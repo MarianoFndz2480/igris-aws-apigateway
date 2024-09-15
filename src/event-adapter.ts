@@ -21,26 +21,27 @@ export class AWSApiGatewayRequestAdapter extends RequestAdapter {
         return request
     }
 
-    private formatQueryParams(queryParams: Record<string, any>) {
+    private formatQueryParams(queryParams: Record<string, string | undefined>) {
         const keys = Object.keys(queryParams)
 
         keys.forEach((key) => {
-            queryParams[key] = JSON.parse(queryParams[key])
+            if (typeof queryParams[key] !== 'undefined') {
+                queryParams[key] = JSON.parse(queryParams[key] as string)
+            }
         })
 
         return queryParams
     }
 
-    parseResponse(response: ResponseSuccess | ResponseError): any {
-        if (response instanceof ResponseSuccess)
-            return {
-                statusCode: response.code,
-                body: JSON.stringify(response.data),
-            }
+    parseResponse(response: ResponseSuccess | ResponseError): { statusCode: number; body: string } {
+        const body =
+            response instanceof ResponseSuccess
+                ? JSON.stringify(response.data)
+                : JSON.stringify({ message: response.message, errorName: response.name })
 
         return {
             statusCode: response.code,
-            body: JSON.stringify({ message: response.message, errorName: response.name }),
+            body,
         }
     }
 }
