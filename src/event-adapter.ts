@@ -1,12 +1,13 @@
 import { APIGatewayEvent } from 'aws-lambda'
-import { RequestAdapter, CommonRequest, ErrorData } from 'igris-core'
+import { RequestAdapter, UseCaseRequest, ErrorData } from 'igris-core'
 
 export class AWSApiGatewayRequestAdapter extends RequestAdapter {
-    parseRequest(event: APIGatewayEvent): CommonRequest {
-        const request: CommonRequest = {
+    parseRequest(event: APIGatewayEvent): UseCaseRequest {
+        const request: UseCaseRequest = {
             payload: {},
             token: '',
             queryParams: {},
+            pathParams: {},
             headers: {},
         }
 
@@ -15,6 +16,8 @@ export class AWSApiGatewayRequestAdapter extends RequestAdapter {
         if (event.headers) request.headers = event.headers
 
         if (event.headers['Authorization']) request.token = event.headers['Authorization']
+
+        if (event.pathParameters) request.pathParams = event.pathParameters
 
         if (event.queryStringParameters) request.queryParams = this.formatQueryParams(event.queryStringParameters)
 
