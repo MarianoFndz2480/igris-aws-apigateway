@@ -1,7 +1,7 @@
 import { APIGatewayEvent } from 'aws-lambda'
-import { RequestAdapter, UseCaseRequest, ErrorData } from 'igris-core'
+import { RequestAdapter, UseCaseRequest, ErrorResponse, SuccessResponse } from 'igris-core'
 
-export class AWSApiGatewayRequestAdapter extends RequestAdapter {
+export class AWSApiGatewayRequestAdapter implements RequestAdapter {
     parseRequest(event: APIGatewayEvent): UseCaseRequest {
         const request: UseCaseRequest = {
             payload: {},
@@ -36,11 +36,11 @@ export class AWSApiGatewayRequestAdapter extends RequestAdapter {
         return queryParams
     }
 
-    parseResponse(data: ErrorData): string | object {
-        const body = JSON.stringify(data.response)
+    parseResponse(response: SuccessResponse | ErrorResponse): string | object {
+        const body = JSON.stringify(response)
 
         return {
-            statusCode: data.statusCode,
+            statusCode: response.httpStatus,
             body,
         }
     }
