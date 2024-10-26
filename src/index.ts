@@ -1,1 +1,1 @@
-export * from './event-adapter'
+export * from './requestAdapter'
